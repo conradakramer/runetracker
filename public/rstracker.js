@@ -1,6 +1,8 @@
 const listElements = document.getElementById("people");
 document.getElementById("people").addEventListener("click", aboutPerson);
 
+var data1;
+
 function compareValues(key, order = "asc") {
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -22,8 +24,26 @@ function compareValues(key, order = "asc") {
 
 function aboutPerson(){}
 
+function getData() {
+  $.getJSON(
+    "https://jsonp.afeld.me/?url=" +
+      encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
+    function (data) {
+      //if (data != undefined)
+      console.log(data);
+      
+      //const parsed = JSON.parse(data);
+      const newJson = JSON.stringify(data);
+
+      //localStorage.setItem("items3", newJson);
+      return newJson
+    }
+  );
+}
+
 function displaySearch(search) {
-  const itemList = JSON.parse(localStorage.getItem("items2"));
+  console.log(search);
+  const itemList = data1//JSON.parse(data);
   const cleanList = [];
   for (x in itemList) {
     cleanList.push(itemList[x]);
@@ -77,9 +97,14 @@ function getData() {
     "https://jsonp.afeld.me/?url=" +
       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
     function (data) {
-      const parsed = JSON.parse(data);
+
+      
+     
       const newJson = JSON.stringify(data);
-      localStorage.setItem("items2", newJson);
+      const parsed = JSON.parse(newJson);
+      console.log(parsed);
+      data1 = data;
+      
     }
   );
 }
@@ -111,7 +136,6 @@ function getData() {
 
 
 function search() {
-  getData();
   listElements.innerHTML = "";
   displaySearch(document.getElementById("search").value);
 }
@@ -121,13 +145,11 @@ function refreshPage() {
   displaySearch("");
 }
 function potions() {
- getData();
   listElements.innerHTML = "";
   displaySearch("potion");
 }
 
 function sets() {
-  getData();
   listElements.innerHTML = "";
   displaySearch("set");
 }
