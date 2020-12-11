@@ -23,7 +23,7 @@ function compareValues(key, order = "asc") {
 function aboutPerson(){}
 
 function displaySearch(search) {
-  const itemList = JSON.parse(localStorage.getItem("items"));
+  const itemList = JSON.parse(localStorage.getItem("items2"));
   const cleanList = [];
   for (x in itemList) {
     cleanList.push(itemList[x]);
@@ -77,11 +77,9 @@ function getData() {
     "https://jsonp.afeld.me/?url=" +
       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
     function (data) {
-      //if (data != )
-      console.log(data);
-      const parsed = JSON.parse(data.contents);
-      const newJson = JSON.stringify(parsed);
-      localStorage.setItem("items", newJson);
+      const parsed = JSON.parse(data);
+      const newJson = JSON.stringify(data);
+      localStorage.setItem("items2", newJson);
     }
   );
 }
