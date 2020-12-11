@@ -72,17 +72,17 @@ function displayResults(item) {
 
 
 
-// function getData() {
-//   $.getJSON(
-//     "https://api.allorigins.win/get?url=" +
-//       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
-//     function (data) {
-//       const parsed = JSON.parse(data.contents);
-//       const newJson = JSON.stringify(parsed);
-//       localStorage.setItem("items", newJson);
-//     }
-//   );
-// }
+function getData() {
+  $.getJSON(
+    "https://jsonp.afeld.me/?url=" +
+      encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
+    function (data) {
+      const parsed = JSON.parse(data.contents);
+      const newJson = JSON.stringify(parsed);
+      localStorage.setItem("items", newJson);
+    }
+  );
+}
 
 // function getData() {
 //   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://rsbuddy.com/exchange/summary.json')}`)
@@ -95,17 +95,17 @@ function displayResults(item) {
 //       const newJson = JSON.stringify(parsed);
 //       localStorage.setItem("items", newJson);})
 // }
-function getData() {
-  fetch(`https://jsonp.afeld.me/?url=https://rsbuddy.com/exchange/summary.json`)
-  .then(response => {
-    if (response.ok) return response.json()
-    throw new Error('Network response was not ok.')
-  })
-  .then(data => {
-      const parsed = JSON.parse(data.contents);
-      const newJson = JSON.stringify(parsed);
-      localStorage.setItem("items", newJson);})
-}
+// function getData() {
+//   fetch(`https://jsonp.afeld.me/?url=https://rsbuddy.com/exchange/summary.json`)
+//   .then(response => {
+//     if (response.ok) return response.json()
+//     throw new Error('Network response was not ok.')
+//   })
+//   .then(data => {
+//       const parsed = JSON.parse(data.contents);
+//       const newJson = JSON.stringify(parsed);
+//       localStorage.setItem("items", newJson);})
+// }
 
 
 
