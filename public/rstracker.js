@@ -77,6 +77,8 @@ function getData() {
     "https://jsonp.afeld.me/?url=" +
       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
     function (data) {
+      //if (data != )
+      console.log(data);
       const parsed = JSON.parse(data.contents);
       const newJson = JSON.stringify(parsed);
       localStorage.setItem("items", newJson);
