@@ -96,7 +96,7 @@ function displayResults(item) {
 //       localStorage.setItem("items", newJson);})
 // }
 function getData() {
-  fetch(`https://crossorigin.me/https:https://rsbuddy.com/exchange/summary.json`)
+  fetch(`https://jsonp.afeld.me/?url=https://rsbuddy.com/exchange/summary.json`)
   .then(response => {
     if (response.ok) return response.json()
     throw new Error('Network response was not ok.')
