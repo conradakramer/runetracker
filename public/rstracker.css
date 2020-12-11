@@ -1,0 +1,33 @@
+.content {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif) repeat-y top center;
+    padding: 50px 75px;
+    position: relative;
+}
+
+.content:before, .content:after {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_top.gif) no-repeat center top;
+    content: '';
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: -11px;
+    width: 100%;
+}
+
+.content:after {
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_765_bottom.gif) no-repeat center bottom;
+    bottom: -11px;
+    top: auto;
+}
+
+body{
+    background-color: darkgray;
+}
+.card{
+    max-width: 700px;
+    background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif);
+    
+}
+li{
+    margin-left: 4px;
+}

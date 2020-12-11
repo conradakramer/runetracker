@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Grand Exchange Margins</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="rstracker.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">RS Tracker</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item active">
+                    <button class="btn btn-outline-secondary" onclick=refreshPage()>Refresh List</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn btn-outline-secondary" onclick=potions()>Potions</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn btn-outline-secondary" onclick=sets()>Sets</button>
+                  </li>
+                </ul>
+                <div class="d-flex">
+                  <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" onclick=search()>Search</button>
+                </div>
+              </div>
+            </div>
+        </nav>
+         <main class="container">
+        <div><br><br><br>
+            <div class="card mb-3" style="max-width: 700px; margin: auto">
+                <div class="row g-0">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h2 class="card-title">Item Profit Margin Finder</h2>
+                      <p class="card-text">This site gets the with in 30 min live data of profit margins that are sold on the grand exchange.</p>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <ul style="list-style: none;" id="people" class="content">
+            </ul>
+           
+ </div>
+</main>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="rstracker.js" async defer></script>
+    </body>
+</html>
