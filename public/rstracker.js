@@ -24,31 +24,14 @@ function compareValues(key, order = "asc") {
 
 function aboutPerson(){}
 
-function getData() {
-  $.getJSON(
-    "https://jsonp.afeld.me/?url=" +
-      encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
-    function (data) {
-      //if (data != undefined)
-      console.log(data);
-      
-      //const parsed = JSON.parse(data);
-      const newJson = JSON.stringify(data);
-
-      //localStorage.setItem("items3", newJson);
-      return newJson
-    }
-  );
-}
-
 function displaySearch(search) {
-  console.log(search);
+  //console.log(search);
   const itemList = data1//JSON.parse(data);
   const cleanList = [];
   for (x in itemList) {
     cleanList.push(itemList[x]);
   }
-  console.log(cleanList);
+  //console.log(cleanList);
   for (x in cleanList) {
     if (cleanList[x].sell_average == 0) {
       cleanList[x].diffrence = 0;
@@ -97,40 +80,14 @@ function getData() {
     "https://jsonp.afeld.me/?url=" +
       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
     function (data) {
-
-      
-     
       const newJson = JSON.stringify(data);
       const parsed = JSON.parse(newJson);
-      console.log(parsed);
+      //console.log(parsed);
       data1 = data;
       
     }
   );
 }
-
-// function getData() {
-//   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://rsbuddy.com/exchange/summary.json')}`)
-//   .then(response => {
-//     if (response.ok) return response.json()
-//     throw new Error('Network response was not ok.')
-//   })
-//   .then(data => {
-//       const parsed = JSON.parse(data.contents);
-//       const newJson = JSON.stringify(parsed);
-//       localStorage.setItem("items", newJson);})
-// }
-// function getData() {
-//   fetch(`https://jsonp.afeld.me/?url=https://rsbuddy.com/exchange/summary.json`)
-//   .then(response => {
-//     if (response.ok) return response.json()
-//     throw new Error('Network response was not ok.')
-//   })
-//   .then(data => {
-//       const parsed = JSON.parse(data.contents);
-//       const newJson = JSON.stringify(parsed);
-//       localStorage.setItem("items", newJson);})
-// }
 
 
 
