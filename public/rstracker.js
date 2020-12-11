@@ -28,7 +28,7 @@ function displaySearch(search) {
   for (x in itemList) {
     cleanList.push(itemList[x]);
   }
-  //console.log(cleanList);
+  console.log(cleanList);
   for (x in cleanList) {
     if (cleanList[x].sell_average == 0) {
       cleanList[x].diffrence = 0;
@@ -72,17 +72,34 @@ function displayResults(item) {
 
 
 
+// function getData() {
+//   $.getJSON(
+//     "https://api.allorigins.win/get?url=" +
+//       encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
+//     function (data) {
+//       const parsed = JSON.parse(data.contents);
+//       const newJson = JSON.stringify(parsed);
+//       localStorage.setItem("items", newJson);
+//     }
+//   );
+// }
+
 function getData() {
-  $.getJSON(
-    "https://api.allorigins.win/get?url=" +
-      encodeURIComponent("https://rsbuddy.com/exchange/summary.json"),
-    function (data) {
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://rsbuddy.com/exchange/summary.json')}`)
+  .then(response => {
+    if (response.ok) return response.json()
+    throw new Error('Network response was not ok.')
+  })
+  .then(data => {
       const parsed = JSON.parse(data.contents);
       const newJson = JSON.stringify(parsed);
-      localStorage.setItem("items", newJson);
-    }
-  );
+      localStorage.setItem("items", newJson);})
 }
+
+
+
+
+
 function search() {
   getData();
   listElements.innerHTML = "";
